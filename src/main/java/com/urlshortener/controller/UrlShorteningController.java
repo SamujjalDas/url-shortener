@@ -74,4 +74,9 @@ public class UrlShorteningController {
 		response.sendRedirect(urlToRet.getOriginalUrl());
 		return null;
 	}
+
+	@GetMapping("/test")
+	public String testConnection() {
+		return "Service is Up";
+	}
 }

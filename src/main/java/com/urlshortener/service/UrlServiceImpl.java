@@ -38,7 +38,7 @@ public class UrlServiceImpl implements UrlService {
 
 	private LocalDateTime getExpirationDate(String expirationDate, LocalDateTime creationDate) {
 		if (StringUtils.isBlank(expirationDate))
-			return creationDate.plusMinutes(5);
+			return creationDate.plusMinutes(60);
 		LocalDateTime expirationDateToRet = LocalDateTime.parse(expirationDate);
 		return expirationDateToRet;
 	}
