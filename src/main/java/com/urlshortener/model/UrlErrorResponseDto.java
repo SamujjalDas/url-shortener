@@ -6,8 +6,6 @@ public class UrlErrorResponseDto {
 	
 	public UrlErrorResponseDto() {
 		super();
-		this.status = status;
-		this.error = error;
 	}
 	public String getStatus() {
 		return status;

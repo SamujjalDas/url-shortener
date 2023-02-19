@@ -10,9 +10,6 @@ public class UrlResponseDto {
 	
 	public UrlResponseDto() {
 		super();
-		this.originalUrl = originalUrl;
-		this.shortLink = shortLink;
-		this.expirationDate = expirationDate;
 	}
 	public String getOriginalUrl() {
 		return originalUrl;
