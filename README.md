@@ -5,9 +5,25 @@ Framework - Springboot
 Open for collaborations. PRs for any new features or bug fix will be reviewed and merged.
 Thank You.
 
-
 How to run the application for local development
 1. Setup snd run postgres db in local and update the credentials in application.properties
 2. Run UrlShortenerApplication
 3. Once application is up, open http://localhost:8080/test 
 4. 'Service is Up' - This will be displayed in browser
+
+Curl documentation
+1. Generate short url
+Request : 
+   curl --location 'http://localhost:8080/generate' \
+   --header 'Content-Type: application/json' \
+   --data '{
+   "url": "https://www.amazon.in/Lenovo-IdeaPad-Gaming-39-62cm-82K201V2IN/dp/B0B7RXC1Y1?ref_=Oct_DLandingS_D_416a10e7_70&th=1"
+   }'
+Response : 
+   {
+   "originalUrl": "https://www.amazon.in/Lenovo-IdeaPad-Gaming-39-62cm-82K201V2IN/dp/B0B7RXC1Y1?ref_=Oct_DLandingS_D_416a10e7_70&th=1",
+   "shortLink": "fdefa25f",
+   "expirationDate": "2023-02-19T13:19:26.3750891"
+   }
+2. In browser open baseurl+shortLink. Eg: http://localhost:8080/fdefa25f 
+   User will be redirected to original url
