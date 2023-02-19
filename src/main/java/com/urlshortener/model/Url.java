@@ -21,11 +21,6 @@ public class Url {
 
 	public Url() {
 		super();
-		this.id = id;
-		this.originalUrl = originalUrl;
-		this.shortLink = shortLink;
-		this.creationDate = creationDate;
-		this.expirationDate = expirationDate;
 	}
 
 	public long getId() {
