@@ -14,4 +14,6 @@ public interface UrlService {
 	public Url getEncodedUrl(String url);
 
 	public void deleteShortLink(Url url);
+
+	public void deleteAllLinks();
 }

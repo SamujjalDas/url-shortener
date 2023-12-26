@@ -28,6 +28,9 @@ public class UrlServiceImpl implements UrlService {
 			urlToPersist
 					.setExpirationDate(getExpirationDate(urlDto.getExpirationDate(), urlToPersist.getCreationDate()));
 			Url urlToRet = persistShortLink(urlToPersist);
+			String baseurl = System.getenv("baseurl");
+			if(baseurl==null) baseurl = "http://localhost:8080";
+			urlToPersist.setShortLink(baseurl+"/s/"+encodeUrl);
 
 			if (urlToRet != null)
 				return urlToRet;
@@ -65,6 +68,11 @@ public class UrlServiceImpl implements UrlService {
 	@Override
 	public void deleteShortLink(Url url) {
 		urlRepository.delete(url);
+	}
+
+	@Override
+	public void deleteAllLinks() {
+		urlRepository.deleteAll();
 	}
 
 }

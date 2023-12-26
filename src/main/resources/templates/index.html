@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Snaply - URL Shortener</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+</head>
+<body>
+<main class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <h1 class="text-center mt-5 mb-4">Snaply - URL Shortener</h1>
+            <form action="/generateShortLink" method="post">
+
+                <div class="mb-1">
+                    <input type="text" id="url" class="form-control form-control-lg" name="url" placeholder="www.google.com">
+                </div>
+
+                <div class="d-grid gap-2">
+                    <input class="btn btn-primary" type="submit" value="Shorten URL">
+                </div>
+            </form>
+        </div>
+
+        <br>
+        <div class="col-md-2" th:if="${sh != null}">
+            <p th:text="'Short URL: ' + ${sh.getShortLink()}"></p>
+            <p th:text="'Long URL: ' + ${sh.getOriginalUrl()}"></p>
+            <!--<p>Short URL: <a th:href="${sh.getShortLink()}"></a></p>
+            <p>Long URL: <a th:href="${sh.getOriginalUrl()}"></a></p>-->
+        </div>
+
+    </div>
+
+
+
+</main>
+</body>
+</html>
