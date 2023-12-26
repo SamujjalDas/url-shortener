@@ -29,7 +29,7 @@ public class UrlServiceImpl implements UrlService {
 					.setExpirationDate(getExpirationDate(urlDto.getExpirationDate(), urlToPersist.getCreationDate()));
 			Url urlToRet = persistShortLink(urlToPersist);
 			String baseurl = System.getenv("baseurl");
-			if(baseurl==null) baseurl = "http://localhost:8080/";
+			if(baseurl==null) baseurl = "http://localhost:8080";
 			urlToPersist.setShortLink(baseurl+"/s/"+encodeUrl);
 
 			if (urlToRet != null)
