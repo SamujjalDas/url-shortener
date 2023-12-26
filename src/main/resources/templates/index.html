@@ -26,13 +26,12 @@
         </div>
 
         <br>
-        <div class="col-md-3" th:if="${sh != null}">
+        <div class="col-md-2" th:if="${sh != null}">
             <p th:text="'Short URL: ' + ${sh.getShortLink()}"></p>
             <p th:text="'Long URL: ' + ${sh.getOriginalUrl()}"></p>
-            <p>Short URL: <a th:href="${sh.getShortLink()}"></a></p>
-            <p>Long URL: <a th:href="${sh.getOriginalUrl()}"></a></p>
+            <!--<p>Short URL: <a th:href="${sh.getShortLink()}"></a></p>
+            <p>Long URL: <a th:href="${sh.getOriginalUrl()}"></a></p>-->
         </div>
-
 
     </div>
 

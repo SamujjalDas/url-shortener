@@ -24,10 +24,13 @@ public class UrlServiceImpl implements UrlService {
 			Url urlToPersist = new Url();
 			urlToPersist.setCreationDate(LocalDateTime.now());
 			urlToPersist.setOriginalUrl(urlDto.getUrl());
-			urlToPersist.setShortLink("http://localhost:8080/s/"+encodeUrl);
+			urlToPersist.setShortLink(encodeUrl);
 			urlToPersist
 					.setExpirationDate(getExpirationDate(urlDto.getExpirationDate(), urlToPersist.getCreationDate()));
 			Url urlToRet = persistShortLink(urlToPersist);
+			String baseurl = System.getenv("baseurl");
+			if(baseurl==null) baseurl = "http://localhost:8080/";
+			urlToPersist.setShortLink(baseurl+"/s/"+encodeUrl);
 
 			if (urlToRet != null)
 				return urlToRet;

@@ -63,13 +63,13 @@ public class UrlShorteningController {
 			return new ResponseEntity<UrlErrorResponseDto>(urlErrorResponseDto, HttpStatus.OK);
 		}
 
-/*		if (urlToRet.getExpirationDate().isBefore(LocalDateTime.now())) {
+		if (urlToRet.getExpirationDate().isBefore(LocalDateTime.now())) {
 			urlService.deleteShortLink(urlToRet);
 			UrlErrorResponseDto urlErrorResponseDto = new UrlErrorResponseDto();
 			urlErrorResponseDto.setStatus("200");
 			urlErrorResponseDto.setError("URL has expired. Please generate a new one");
 			return new ResponseEntity<UrlErrorResponseDto>(urlErrorResponseDto, HttpStatus.OK);
-		}*/
+		}
 		response.sendRedirect(urlToRet.getOriginalUrl());
 		return null;
 	}
