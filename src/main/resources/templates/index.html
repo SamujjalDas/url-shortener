@@ -7,32 +7,44 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Snaply - URL Shortener</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <style>
+    .custom-header {
+      font-weight: bold;
+      color: #0080ff;
+    }
+</style>
 </head>
+
 <body>
 <main class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-4">
-            <h1 class="text-center mt-5 mb-4">Snaply - URL Shortener</h1>
+            <h1 class="text-center mt-5 mb-4 custom-header">Snaply - URL Shortener</h1>
             <form action="/generateShortLink" method="post">
 
                 <div class="mb-1">
+                    <h4>Paste the URL to be shortened</h4>
                     <input type="text" id="url" class="form-control form-control-lg" name="url" placeholder="www.google.com">
                 </div>
 
-                <div class="d-grid gap-2">
+                <div class="d-grid gap-2 justify-content-center">
                     <input class="btn btn-primary" type="submit" value="Shorten URL">
                 </div>
             </form>
         </div>
+    </div>
 
+    <div class="row justify-content-center">
         <br>
         <div class="col-md-2" th:if="${sh != null}">
-            <p th:text="'Short URL: ' + ${sh.getShortLink()}"></p>
-            <p th:text="'Long URL: ' + ${sh.getOriginalUrl()}"></p>
-            <!--<p>Short URL: <a th:href="${sh.getShortLink()}"></a></p>
-            <p>Long URL: <a th:href="${sh.getOriginalUrl()}"></a></p>-->
+            <p>
+                Short URL: <a th:href="${sh.getShortLink()}" th:text="${sh.getShortLink()}"></a>
+            </p>
+            <p>
+                Original URL: <a th:href="${sh.getOriginalUrl()}" th:text="${sh.getOriginalUrl()}"></a>
+            </p>
+            <h7>The short URL will automatically be deleted after three months</h7>
         </div>
-
     </div>
 
 
