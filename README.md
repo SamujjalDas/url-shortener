@@ -33,8 +33,8 @@ Response :
 
 **Snaply is live now @ https://www.snaply.lat
 **
-![WhatsApp Image 2023-12-28 at 2 58 47 PM](https://github.com/SamujjalDas/url-shortener/assets/34987253/33875360-4d59-4980-a96d-5208774756f3)
-![WhatsApp Image 2023-12-28 at 2 58 46 PM](https://github.com/SamujjalDas/url-shortener/assets/34987253/1e0707a9-6b43-4689-b9a2-9d6bca5f5e75)
+![HomePage](https://github.com/SamujjalDas/url-shortener/assets/34987253/33875360-4d59-4980-a96d-5208774756f3 | width=100)
+![URL shortened](https://github.com/SamujjalDas/url-shortener/assets/34987253/1e0707a9-6b43-4689-b9a2-9d6bca5f5e75 | width=100)
 
 
 
