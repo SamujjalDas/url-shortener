@@ -71,21 +71,16 @@ public class UrlShorteningController {
 			return new ResponseEntity<UrlErrorResponseDto>(urlErrorResponseDto, HttpStatus.OK);
 		}
 		response.sendRedirect(urlToRet.getOriginalUrl());
+
 		return null;
 	}
 
 	@GetMapping("/test")
 	public String testConnection() {
-		return "Service is Up";
+		return "health";
 	}
 
-	@DeleteMapping("/delete")
-	public String deleteAllLinks() {
-		urlService.deleteAllLinks();
-		return "Deleted all links";
-	}
-
-	@PostMapping("/generateShortLink")
+	@PostMapping("/shortener")
 	public String generateShortLinkWeb(@RequestParam Map<String, String> url, HttpServletResponse response, Model model) throws IOException {
 		Url urlToRet = urlService.generateShortLink(new UrlDto(url.get("url"), null));
 		response.setStatus(201);

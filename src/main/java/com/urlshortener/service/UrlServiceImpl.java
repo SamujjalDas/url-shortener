@@ -23,7 +23,8 @@ public class UrlServiceImpl implements UrlService {
 			String encodeUrl = encodeUrl(urlDto.getUrl());
 			Url urlToPersist = new Url();
 			urlToPersist.setCreationDate(LocalDateTime.now());
-			urlToPersist.setOriginalUrl(urlDto.getUrl());
+			String originalUrl = checkAndModifyUrl(urlDto.getUrl());
+			urlToPersist.setOriginalUrl(originalUrl);
 			urlToPersist.setShortLink(encodeUrl);
 			urlToPersist
 					.setExpirationDate(getExpirationDate(urlDto.getExpirationDate(), urlToPersist.getCreationDate()));
@@ -31,10 +32,7 @@ public class UrlServiceImpl implements UrlService {
 			String baseurl = System.getenv("baseurl");
 			if(baseurl==null) baseurl = "http://localhost:8080";
 			urlToPersist.setShortLink(baseurl+"/s/"+encodeUrl);
-
-			if (urlToRet != null)
-				return urlToRet;
-			return null;
+			return urlToRet;
 		}
 		return null;
 	}
@@ -73,6 +71,15 @@ public class UrlServiceImpl implements UrlService {
 	@Override
 	public void deleteAllLinks() {
 		urlRepository.deleteAll();
+	}
+
+	private String checkAndModifyUrl(String url) {
+		// Check if the URL starts with "http://"
+		if (!url.startsWith("http://") && !url.startsWith("https://")) {
+			// If it doesn't, append "https://"
+			url = "http://" + url;
+		}
+		return url;
 	}
 
 }
