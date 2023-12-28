@@ -71,6 +71,7 @@ public class UrlShorteningController {
 			return new ResponseEntity<UrlErrorResponseDto>(urlErrorResponseDto, HttpStatus.OK);
 		}
 		response.sendRedirect(urlToRet.getOriginalUrl());
+
 		return null;
 	}
 
@@ -85,7 +86,7 @@ public class UrlShorteningController {
 		return "Deleted all links";
 	}
 
-	@PostMapping("/generateShortLink")
+	@PostMapping("/shortener")
 	public String generateShortLinkWeb(@RequestParam Map<String, String> url, HttpServletResponse response, Model model) throws IOException {
 		Url urlToRet = urlService.generateShortLink(new UrlDto(url.get("url"), null));
 		response.setStatus(201);
