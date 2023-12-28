@@ -27,3 +27,15 @@ Response :
    }
 2. In browser open baseurl+shortLink. Eg: http://localhost:8080/fdefa25f 
    User will be redirected to original url
+
+   Use Snaply UI to shorten the URLs from web
+   URL : http://localhost:8080/
+
+**Snaply is live now @ https://www.snaply.lat
+**
+
+<img src="https://github.com/SamujjalDas/url-shortener/assets/34987253/33875360-4d59-4980-a96d-5208774756f3" width="400">
+<img src="https://github.com/SamujjalDas/url-shortener/assets/34987253/1e0707a9-6b43-4689-b9a2-9d6bca5f5e75" width="400">
+
+
+
