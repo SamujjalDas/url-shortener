@@ -77,13 +77,7 @@ public class UrlShorteningController {
 
 	@GetMapping("/test")
 	public String testConnection() {
-		return "Service is Up";
-	}
-
-	@DeleteMapping("/delete")
-	public String deleteAllLinks() {
-		urlService.deleteAllLinks();
-		return "Deleted all links";
+		return "health";
 	}
 
 	@PostMapping("/shortener")
