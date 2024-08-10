@@ -5,8 +5,6 @@ import java.time.LocalDateTime;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
 
 import com.google.common.hash.Hashing;
@@ -60,20 +58,17 @@ public class UrlServiceImpl implements UrlService {
 	}
 
 	@Override
-	@Cacheable(value = "longUrl", key = "#url")
 	public Url getEncodedUrl(String url) {
 		Url urlToRet = urlRepository.findByShortLink(url);
 		return urlToRet;
 	}
 
 	@Override
-	@CacheEvict(value = "longUrl", key = "#url")
 	public void deleteShortLink(Url url) {
 		urlRepository.delete(url);
 	}
 
 	@Override
-	@CacheEvict(value = "longUrl", allEntries = true)
 	public void deleteAllLinks() {
 		urlRepository.deleteAll();
 	}
